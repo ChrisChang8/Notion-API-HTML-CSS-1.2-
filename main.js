@@ -5,7 +5,7 @@ async function fetchDataFromAPIEndpoint(){
 
     document.querySelector('.card-container').innerHTML = cards.map((card) => `
         <article class="card">
-        <img src="${card.properties.Image.files[0].external.url}" alt="${card.properties}" class="card__image">
+        <img src="${card.properties.Image.files[0].file.url}" alt="${card.properties}" class="card__image">
         <h2 class="card_heading">${card.properties.Name.title[0].plain_text}</h2>
         <div class="card__content">
         <p>
