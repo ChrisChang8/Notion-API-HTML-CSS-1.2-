@@ -1,33 +1,91 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notion CMS</title>
-
-  </head>
-  <body>
-
-    <main class="card-container">
-      <article class="card">
-        <img src="https://doodleipsum.com/350x197/outline?i=202b9e9fc171033d16cae6fb0b8e8df2" alt="Image Here" class="card__image">
-        <h2 class="card_heading">Card Heading</h2>
-        <div class="card__content">
-          <p>
-            DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
-            DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
-            DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
-            DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
-            DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
-            DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
-            DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
-          </p>
-        </div>
-        <a href="#" class="card__btn">Button Here</a>
-      </article>
-    </main>
     
-    <script type="module" src="/main.js"></script>
-  </body>
-</html>
+  </head>
+
+
+  <body>
+    <main class="card-container"></main>
+
+      <script>
+        (function loadSkeletonData(){
+            const skeleton = {
+              html: `
+              <article class="card">
+                <div class="card__image"></div>
+                <h2 class="card__heading"></h2>
+                <div class="card__content">
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                </div>
+                <a href="#" class="card__btn"></a>
+              </article>
+              `,
+              css: `
+              <style>
+                .card__image {
+                  width: 100%;
+                  height: 240px;
+                  background-color: #000;
+                  border-radius: 10px; /* Replaced var(--radius-3) */
+                }
+
+                .card__heading {
+                  width: 80%;
+                  height: 3.5rem;
+                  background-color: #000; 
+                  border-radius: 10px; /* Replaced var(--radius-3) */
+                  margin: 1rem 0 .6rem;
+                }
+
+                .card__content > p {
+                  width: 100%;
+                  height: 1.5rem;
+                  background-color: #000; 
+                  border-radius: 10px; /* Replaced var(--radius-3) */
+                }
+
+                .card__content > p:last-child {
+                  width: 70%;
+                }
+
+                .card__btn {
+                  width: 130px;
+                  height: 2.8rem;
+                }
+              </style>
+              `,
+            }
+              document.querySelector('.card-container').innerHTML = skeleton.html.repeat(6) + skeleton.css;
+        })();
+      </script>
+    
+      <script type="module" src="/main.js"></script>
+    </body>
+  </html>
+
+
+<!-- 
+    <article class="card">
+      <img src="https://doodleipsum.com/350x197/outline?i=202b9e9fc171033d16cae6fb0b8e8df2" alt="Image Here" class="card__image">
+      <h2 class="card_heading">Card Heading</h2>
+      <div class="card__content">
+        <p>
+          DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
+          DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
+        </p>
+      </div>
+      <a href="#" class="card__btn">Button Here</a>
+    </article>
+-->
